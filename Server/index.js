@@ -22,6 +22,21 @@ app.use(cors({
   credentials: true                 // 👈 this is REQUIRED to allow cookies
 }));
 
+
+// res.cookie('token', token, {
+  // httpOnly: true,
+  // secure: process.env.NODE_ENV === 'production',
+  // sameSite: 'none',  // to allow cross-site cookies on HTTPS
+// });
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
+});
+
 app.use("/api/auth", myRouter);
 app.use("/Code-reviewer", myRouter2);
 app.use("/api/userData",router3);
@@ -39,14 +54,6 @@ app.get("/",(req,res)=>{
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
 
-const server = http.createServer(app);
-
-const io = new Server(server, {
-  cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
-    methods: ["GET", "POST"],
-  },
-});
 
 const dataMappings = {};
 
