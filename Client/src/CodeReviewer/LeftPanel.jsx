@@ -49,7 +49,7 @@ const LeftPanel = ({ isLightMode, setisLightMode, feedback, setFeedback }) => {
     setIsLoading(true);
     const loadingToastId = toast.loading("Processing...");
     axios
-      .post(`http://localhost:8000/Code-reviewer/get-response`, { Code })
+      .post(`https://code-doodle-editor.onrender.com/Code-reviewer/get-response`, { Code })
       .then((res) => {
         setFeedback(res.data.msg);
         toast.dismiss(loadingToastId);
