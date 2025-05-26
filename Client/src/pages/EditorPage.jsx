@@ -15,7 +15,7 @@ import { useFileData } from "../Context/FileDataContext";
 import axios from "axios";
 import { useAppContext } from "../Context/AppContext";
 import { RxSpeakerLoud } from "react-icons/rx";
-import "../app.css";
+import "../App.css";
 
 function EditorPage({ isLightMode }) {
   const { BACKEND_URL } = useAppContext();
