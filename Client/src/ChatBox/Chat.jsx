@@ -9,7 +9,7 @@ import ShareCircleBold from "../assets/ShareCircleBold";
 import { ImCross } from "react-icons/im";
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
-import "../app.css";
+import "../App.css";
 import { useAppContext } from "../Context/AppContext";
 import axios from "axios";
 import { CgArrowsExpandUpLeft } from "react-icons/cg";
