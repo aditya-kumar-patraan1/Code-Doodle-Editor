@@ -29,7 +29,7 @@ const ResetPassword = ({ isLightMode, setisLightMode }) => {
       password
     }
 
-    axios.put("http://localhost:8000/api/auth/resetPassword",myData).then(()=>{
+    axios.put("https://code-doodle-editor.onrender.com/api/auth/resetPassword",myData).then(()=>{
       // console.log("Data sent to backend");
     }).catch((e)=>{
       // console.log("Data not sent to Backend");
