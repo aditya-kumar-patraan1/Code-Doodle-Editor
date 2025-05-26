@@ -5,7 +5,7 @@ import "codemirror/theme/dracula.css";
 import "codemirror/addon/edit/closetag";
 import "codemirror/addon/edit/closebrackets";
 import "codemirror/lib/codemirror.css";
-import "../app.css";
+import "../App.css";
 
 const CodeEditor = ({ socketRef, roomid, codeChange,setfileContent }) => {
   const editorRef = useRef(null);
