@@ -17,7 +17,7 @@ const EnterOTPforPassword = ({ isLightMode, setisLightMode }) => {
 
   function sentToBackend() {
     axios
-      .post(`https://code-doodle-editor.onrender.com/api/auth/verifyOTPforPasswordReset/`,{email})
+      .post(`https://code-doodle-editor-6.onrender.com/api/auth/verifyOTPforPasswordReset/`,{email})
       .then(() => {
         // console.log(`Email sent to Backend to send OTP for reset Password`);
         toast.success("Email submitted. Please check your inbox.");
