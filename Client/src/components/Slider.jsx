@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ChatBot from "../assets/chatbot.png";
+import ChatBot from "../assets/chatBot.png";
 import meeting from "../assets/meeting.png";
 import codeReviewer from "../assets/codeReviewer.png";
 import { MdOpenInNew } from "react-icons/md";
