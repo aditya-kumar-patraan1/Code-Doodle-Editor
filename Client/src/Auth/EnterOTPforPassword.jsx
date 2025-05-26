@@ -45,7 +45,7 @@ const EnterOTPforPassword = ({ isLightMode, setisLightMode }) => {
 
     axios
       .post(
-        "https://code-doodle-editor.onrender.com/api/auth/CheckverifyOTPforPasswordReset",
+        "https://code-doodle-editor-6.onrender.com/api/auth/CheckverifyOTPforPasswordReset",
         myData
       )
       .then((res) => {
