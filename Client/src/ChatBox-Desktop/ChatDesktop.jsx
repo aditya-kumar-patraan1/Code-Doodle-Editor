@@ -15,7 +15,6 @@ import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import { useAppContext } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
-import "../app.css";
 
 const ChatDesktop = ({ isLightMode, setisLightMode }) => {
   const Navigate = useNavigate();
