@@ -28,28 +28,6 @@ const Footer = ({ isLightMode, setisLightMode }) => {
             &copy; {currentYear} CodeShare. All rights reserved.
           </p>
         </div>
-
-        {/* Social Media Links */}
-        <div className="flex space-x-6 text-4xl justify-center md:justify-start mt-4 md:mt-0">
-          <button
-            onClick={() =>
-              window.open(
-                "https://github.com/aditya-kumar-patraan1",
-                "_blank",
-                "noopener,noreferrer"
-              )
-            }
-            className={`text-gray-400 ${
-              isLightMode ? "hover:text-black" : "hover:text-white"
-            } transition`}
-            aria-label="GitHub"
-          >
-            <FaGithub className="inline-block justify-center" />
-            <span className="text-sm text-gray-500 ml-2 hidden md:inline">
-              Github
-            </span>
-          </button>
-        </div>
       </div>
 
       {/* Credit Line */}
@@ -88,5 +66,4 @@ const Footer = ({ isLightMode, setisLightMode }) => {
     </footer>
   );
 };
-
 export default Footer;
