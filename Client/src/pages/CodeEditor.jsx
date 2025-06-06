@@ -50,7 +50,9 @@ const CodeEditor = ({ socketRef, roomid, codeChange,setfileContent }) => {
       });
     }
     return () => {
-      socketRef.current.off("code-change");
+      if(socketRef.current){
+        socketRef.current.off("code-change");
+      }
     };
   }, [socketRef.current]);
 
