@@ -78,7 +78,9 @@ const Slider = ({ isLightMode }) => {
                     onClick={() => {
                       !userData
                         ? toast.error("Login/Register to access the tools")
-                        : Navigate(slide.link);
+                        : !userData.isAccountVerified
+                        ? toast.error("Verify Account to access the tools")
+                        : Navigate(slide.link); 
                     }}
                     className={`mt-4 w-fit flex items-center gap-2 px-5 py-2.5 text-sm sm:text-base rounded-full transition-all font-light text-white lg:font-bold self-center ${
                       isLightMode
@@ -86,7 +88,7 @@ const Slider = ({ isLightMode }) => {
                         : "bg-green-500 hover:bg-transparent hover:text-green-500 hover:border-green-500"
                     } border-2 ${
                       !userData ? "cursor-not-allowed opacity-60" : ""
-                    }`}
+                    } ${userData?.isAccountVerified?"":"cursor-not-allowed"} `}
                   >
                     Try it Now!
                   </button>
@@ -122,5 +124,4 @@ const Slider = ({ isLightMode }) => {
     </>
   );
 };
-
 export default Slider;
