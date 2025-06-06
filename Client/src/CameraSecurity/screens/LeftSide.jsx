@@ -30,6 +30,14 @@ export const LeftSide = ({ room, email, isLightMode }) => {
 
   const toggleMic = () => {
     if (!myStream) return;
+    if(micOn) {
+      const micMsg = `${email} turned off the mic`;
+      socket.emit("micMsg",({remoteSocketId,micMsg}));
+    }
+    else {
+      const micMsg = `${email} turned on the mic`;
+      socket.emit("micMsg",({remoteSocketId,micMsg}));
+    }
     myStream.getAudioTracks().forEach((track) => {
       track.enabled = !track.enabled;
       setMicOn(track.enabled);
@@ -70,6 +78,7 @@ export const LeftSide = ({ room, email, isLightMode }) => {
   }, []);
 
   const handleCallUser = useCallback(async () => {
+    toast.success("Call sent. Waiting for response...");
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
       video: true,
@@ -91,6 +100,7 @@ export const LeftSide = ({ room, email, isLightMode }) => {
     setMyStream(stream);
     const ans = await peer.getAnswer(offer);
     socket.emit("call:accepted", { to: from, ans });
+    toast.success("Send the Stream");
   };
 
   const handleDeclineCall = () => {
@@ -133,6 +143,9 @@ export const LeftSide = ({ room, email, isLightMode }) => {
   }, []);
 
   const sendStreams = useCallback(() => {
+
+    toast.success("Stream sent..");
+
     for (const track of myStream.getTracks()) {
       peer.peer.addTrack(track, myStream);
     }
@@ -218,6 +231,10 @@ export const LeftSide = ({ room, email, isLightMode }) => {
     ]);
   };
 
+  function notifyMic({from,micMsg}){
+    toast.success(micMsg);
+  }
+
   useEffect(() => {
     socket.on("user:joined", handleUserJoined);
     socket.on("incomming:call", handleIncommingCall);
@@ -226,7 +243,8 @@ export const LeftSide = ({ room, email, isLightMode }) => {
     socket.on("peer:nego:final", handleNegoNeedFinal);
     socket.on("camera:toggle", giveMutedMessage);
     socket.on("messages:sent", changeMessages);
-
+    socket.on("micMsg",notifyMic);
+   
     return () => {
       socket.off("user:joined", handleUserJoined);
       socket.off("incomming:call", handleIncommingCall);
@@ -235,6 +253,7 @@ export const LeftSide = ({ room, email, isLightMode }) => {
       socket.off("peer:nego:final", handleNegoNeedFinal);
       socket.off("camera:toggle", giveMutedMessage);
       socket.off("messages:sent", changeMessages);
+      socket.off("micMsg",notifyMic);
     };
   }, [
     socket,
@@ -267,15 +286,15 @@ export const LeftSide = ({ room, email, isLightMode }) => {
       <Toaster />
       {renderAcceptDeclinePrompt()}
       <div
-        className={`flex flex-col md:flex-row ${isLightMode?"bg-transparent":"bg-gray-950"} h-screen items-center w-full ${
+        className={`flex flex-col md:flex-row ${isLightMode?"bg-transparent":"bg-gray-950"} h-full items-center w-full ${
           isLightMode ? "bg-white" : "bg-black"
         }`}
       >
         {/* Video + Controls Section */}
-        <div className={`flex h-fit flex-col ${isLightMode?"bg-transparent":"bg-gray-950"} items-center justify-center w-full md:w-2/3`}>
+        <div className={`flex h-[100vh] flex-col ${isLightMode?"bg-transparent":"bg-gray-950"}  items-center  w-full md:w-2/3`}>
 
           {/* Video Streams */}
-          <div className="flex flex-col gap-6">
+          <div className="gap-6 p-3 flex flex-col justify-between h-full">
             <div className="w-full text-center">
             <div
               className={`text-2xl lg:text-2xl py-3 md:text-3xl font-bold flex items-center justify-center gap-2 ${
@@ -378,11 +397,11 @@ export const LeftSide = ({ room, email, isLightMode }) => {
 
         {/* Chat Section */}
         <div
-          className={`w-full md:w-1/3 flex flex-col h-screen  border-l ${
+          className={`w-full md:w-1/3 flex flex-col h-full  border-l ${
             isLightMode ? "bg-slate-100" : "bg-gray-900"
           }  `}
         >
-          <div className="h-screen">
+          <div className="h-[100vh] flex flex-col justify-between">
             <div className="h-12 flex items-center justify-center bg-gray-800 text-white font-semibold">
             Chat Box
           </div>
