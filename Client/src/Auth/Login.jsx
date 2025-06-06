@@ -12,6 +12,8 @@ const Login = ({ isLightMode, setisLightMode }) => {
 
   const [formData, setFormdata] = useState({ email: "", password: "" });
 
+  // console.log("In Login.jsx Logged in is : "+isLoggedIn);
+
   function handleSubmit(e) {
     e.preventDefault();
 
