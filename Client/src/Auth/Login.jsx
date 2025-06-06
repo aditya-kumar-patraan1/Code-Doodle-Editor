@@ -25,6 +25,7 @@ const Login = ({ isLightMode, setisLightMode }) => {
         } else {
           toast.success("Login Successfully...");
           getUserData();
+          setisLoggedIn(true);
           Navigate("/");
         }
       })
