@@ -126,6 +126,10 @@ io.on("connection", (socket) => {
     // console.log(currMsg);
     socket.broadcast.emit("messages:sent", { from: socket.id, currMsg });
   });
+  
+  socket.on("micMsg",({socketid,micMsg})=>{
+    socket.broadcast.emit("micMsg",{from:socket.id,micMsg});
+  })
 
   socket.on("user-leave", () => {
     // console.log("disconnecting activated...");
