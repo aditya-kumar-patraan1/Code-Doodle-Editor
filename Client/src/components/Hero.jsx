@@ -14,7 +14,6 @@ function Hero({ isLightMode, setisLightMode }) {
   const Navigate = useNavigate();
   const { userData, setUserData } = useAppContext();
   const [Query, setQuery] = useState("");
-  const { useData } = useAppContext();
 
   const h1Ref = useRef(null);
 
@@ -29,11 +28,15 @@ function Hero({ isLightMode, setisLightMode }) {
   };
 
   function findPage() {
-    if(!userData){
+    if (!userData) {
       toast.error("Login/Register to access the tools");
       return;
     }
-    if(!Query){
+    if(!userData?.isAccountVerified){
+      toast.error("Verify Account to access the tools");
+      return;
+    }
+    if (!Query) {
       toast.error("Please enter a page name");
       return;
     }
@@ -118,7 +121,7 @@ function Hero({ isLightMode, setisLightMode }) {
     <>
       <Toaster />
       <div
-        className={`flex flex-col items-center justify-center py-16 gap-y-10 sm:px-24 ${
+        className={`flex flex-col items-center overflow-hidden justify-center py-10 pt-16 gap-y-10 sm:px-24 ${
           isLightMode ? "bg-white" : "bg-gray-950"
         }`}
       >
@@ -138,12 +141,13 @@ function Hero({ isLightMode, setisLightMode }) {
         {/* Main Animated Heading */}
         <div className=" h-hit w-fit flex justify-center px-11 lg:px-0">
           <h1
-          ref={h1Ref}
-          className={`${isLightMode ? "text-black" : "text-white"} text-center font-bold max-w-6xl leading-tight text-1xl md:text-4xl lg:text-5xl sm:px-8 md:px-16`}
-
-        >
-          Empowering Developers: Share, Collaborate, and Innovate with Code.
-        </h1>
+            ref={h1Ref}
+            className={`${
+              isLightMode ? "text-black" : "text-white"
+            } text-center font-bold max-w-6xl leading-tight text-1xl md:text-4xl lg:text-5xl sm:px-8 md:px-16`}
+          >
+            Empowering Developers: Share, Collaborate, and Innovate with Code.
+          </h1>
         </div>
 
         <div className="w-full h-fit bg-pink gap-3 flex flex-row px-32 justify-center">
@@ -170,7 +174,7 @@ function Hero({ isLightMode, setisLightMode }) {
                 ? "active:bg-blue-800 bg-blue-500 rounded-lg hover:bg-blue-700"
                 : "bg-green-500 rounded-lg hover:bg-green-700 active:bg-green-800 "
             } text-white p-2 px-4`}
-            onClick={()=>findPage()}
+            onClick={() => findPage()}
           >
             <FaMagnifyingGlass />
           </button>
@@ -188,12 +192,16 @@ function Hero({ isLightMode, setisLightMode }) {
           onClick={() => {
             !userData
               ? toast.error("Login/Register to access the tools")
-              : Navigate("/RoomPage");
+              : (!userData.isAccountVerified
+              ? toast.error("Verify Account to access the tools")
+              : Navigate("/RoomPage"))
           }}
           className={`${
             isLightMode ? "bg-blue-600" : "bg-green-600"
           } text-white px-4 py-2 font-light lg:px-6 lg:py-3 ${
             userData ? "" : " cursor-not-allowed"
+          } ${
+            userData?.isAccountVerified ? "" : "cursor-not-allowed"
           } rounded-full text_dm lg:text-lg lg:font-semibold hover:bg-transparent ${
             isLightMode
               ? "border hover:border-blue-600 hover:text-blue-600"
