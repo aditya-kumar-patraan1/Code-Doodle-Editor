@@ -7,8 +7,15 @@ import { useEffect } from "react";
 
 const  Profile = ({ userName, isLightMode, setisLightMode }) => {
   const [showList, setshowList] = useState(false);
-  const { BACKEND_URL, userData, setUserData, setisLoggedIn, isLoggedIn } = useAppContext();
+  const { BACKEND_URL,getUserData, userData, setUserData, setisLoggedIn, isLoggedIn } = useAppContext();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // console.log("bhai hora hai referesh");
+    // console.log("Is Logged In ? "+isLoggedIn);
+    getUserData(); // ✅ ye context se userData ko refresh karega
+}, []);
+
 
   async function logOutUser() {
     try {
@@ -83,5 +90,4 @@ const  Profile = ({ userName, isLightMode, setisLightMode }) => {
     </div>
   );
 };
-
 export default Profile;
