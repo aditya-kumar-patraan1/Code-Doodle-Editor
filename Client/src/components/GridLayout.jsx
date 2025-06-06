@@ -151,8 +151,8 @@ function GridLayout({ isLightMode }) {
 
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm">
-          <div className="bg-white border-2 border-gray-200 rounded-lg w-[90%] sm:w-3/4 md:w-1/2 lg:w-2/5 p-4 m-10 lg:m-0 sm:p-6 shadow-xl text-center max-w-[600px]">
-            <p className="text-sm sm:text-lg font-light mb-4 leading-relaxed">
+          <div className={` ${isLightMode?"bg-white border-2 border-gray-200":"bg-gray-950 border-2 border-gray-900"} rounded-lg w-[90%] sm:w-3/4 md:w-1/2 lg:w-2/5 p-4 m-10 lg:m-0 sm:p-6 shadow-xl text-center max-w-[600px]`}>
+            <p className={`text-sm sm:text-lg font-light mb-4 leading-relaxed ${isLightMode?"text-black":"text-white"} `}>
               Are you sure you want to delete this file? Type{" "}
               <span className="font-bold text-pink-600">
                 "Delete {ToBeDeleted}"
@@ -171,14 +171,14 @@ function GridLayout({ isLightMode }) {
             <div className="flex justify-between flex-row sm:flex-row justify-center sm:justify-between items-center mt-6 gap-3 sm:gap-4">
               <button
                 onClick={()=>{setIsopen((prev)=>(!prev))}}
-                className="sm:w-auto bg-pink-500 px-3 py-2 hover:bg-pink-600 text-white lg:px-6 lg:py-2 rounded-lg transition-all duration-300 active:scale-95"
+                className={`sm:w-auto ${isLightMode?"bg-pink-500 hover:bg-pink-600":"bg-orange-500 hover:bg-orange-600"} px-3 py-2  text-white lg:px-6 lg:py-2 rounded-lg transition-all duration-300 active:scale-95`}
               >
                 Close
               </button>
 
               <button
                 onClick={checkValidity}
-                className="sm:w-auto px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white lg:px-6 lg:py-2 rounded-lg transition-all duration-300 active:scale-95"
+                className={`sm:w-auto ${isLightMode?"bg-blue-500 hover:bg-blue-600":"bg-green-500 hover:bg-green-600"} px-3 py-2  text-white lg:px-6 lg:py-2 rounded-lg transition-all duration-300 active:scale-95`}
               >
                 Confirm
               </button>
@@ -228,5 +228,4 @@ function GridLayout({ isLightMode }) {
     </div>
   );
 }
-
 export default GridLayout;
