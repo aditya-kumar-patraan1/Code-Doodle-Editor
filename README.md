@@ -24,21 +24,6 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 
 ---
 
-## Screenshots and Videos
-
-🎥 [Watch Demo Video](#)  
-
-- **Dashboard / Code Collaboration Room**  
-<img src="#" width="600" alt="Collaboration Screenshot" />
-
-- **AI Code Reviewer**  
-<img src="#" width="600" alt="Code Reviewer Screenshot" />
-
-- **Video Meeting + Chatbox**  
-<img src="#" width="600" alt="Video Meeting Screenshot" />
-
----
-
 ## ⚙️ Getting Started
 
 ### Prerequisites
