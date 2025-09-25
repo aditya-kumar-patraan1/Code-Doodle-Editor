@@ -1239,7 +1239,7 @@ export const LeftSide = ({ room, email, isLightMode }) => {
 //             <header className="absolute top-4 left-0 w-full px-4 z-10 flex justify-between items-center">
 //                 <div className="flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg">
 //                   <LuShieldCheck className="text-emerald-400" />
-//                   <span className="font-semibold">StillMind</span>
+//                   <span className="font-semibold">CodeDoodle</span>
 //                 </div>
 //                 {!isConnected?(<div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg">
 //                   <span className={`h-2.5 w-2.5 rounded-full ${isConnected ? "bg-green-500 animate-pulse" : "bg-red-500"}`}></span>
