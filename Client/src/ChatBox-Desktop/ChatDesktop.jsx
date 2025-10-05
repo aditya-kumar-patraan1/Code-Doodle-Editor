@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../App.css";
+import "../App.css";  //already right
 import { IoSend } from "react-icons/io5";
 import { AiFillSound } from "react-icons/ai";
 import { FaCopy, FaEdit } from "react-icons/fa";
