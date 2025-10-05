@@ -15,6 +15,7 @@ import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import { useAppContext } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";   //added framer-motion link commit-1
 
 const ChatDesktop = ({ isLightMode, setisLightMode }) => {
   const Navigate = useNavigate();
@@ -237,7 +238,10 @@ const ChatDesktop = ({ isLightMode, setisLightMode }) => {
           </div>
 
           {delIsOpen && (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
               className={`${!isOpen ? "hidden" : "fixed"} inset-0 ${
                 isLightMode
                   ? "bg-black bg-opacity-30"
@@ -295,7 +299,7 @@ const ChatDesktop = ({ isLightMode, setisLightMode }) => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* Chat Messages */}
@@ -408,7 +412,10 @@ const ChatDesktop = ({ isLightMode, setisLightMode }) => {
           </div>
 
           {/* Edit Modal */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
             className={`${isOpen ? "hidden" : "fixed"} inset-0 ${
               isLightMode ? "bg-black bg-opacity-20" : "bg-black bg-opacity-40"
             } flex justify-center items-center backdrop-blur-lg z-50`}
@@ -460,7 +467,7 @@ const ChatDesktop = ({ isLightMode, setisLightMode }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
