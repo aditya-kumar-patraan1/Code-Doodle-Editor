@@ -13,7 +13,7 @@ const developers = [
     image: aditya,
     github: "https://github.com/aditya-kumar-patraan1",
     linkedin: "https://www.linkedin.com/in/aditya-kumar--?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    instagram: "https://instagram.com/teammate",
+    instagram: "https://www.instagram.com/adityakr_rajput/#",
     about: "Passionate about Data Structures & Algorithms, ranked in the top 3% globally on LeetCode with a 1900+ rating. Skilled Full Stack Web Developer.",
     contributions: [
       "Mainly works on Back-end",
