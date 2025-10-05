@@ -321,7 +321,10 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
         </div>
 
         {/* Edit Modal */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
           className={`${isOpen ? "hidden" : "fixed"} inset-0 ${
             isLightMode ? "bg-black bg-opacity-20" : "bg-black bg-opacity-40"
           } flex justify-center items-center backdrop-blur-lg z-50`}
@@ -371,7 +374,7 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </>
   );
