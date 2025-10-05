@@ -25,7 +25,7 @@ const Footer = ({ isLightMode, setisLightMode }) => {
             Collaborate. Share. Build together in real-time.
           </p>
           <p className="mt-4 text-xs text-gray-500">
-            &copy; {currentYear} CodeShare. All rights reserved.
+            &copy; {currentYear} CodeDoodle. All rights reserved.
           </p>
         </div>
       </div>
