@@ -75,4 +75,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 - Google Generative AI for the Gemini API
 - Flutter team for the amazing framework
-- Made with ❤️ by Aditya Kumar Rajput
+- Made with ❤️ by Aditya Kumar Rajput and Harsh Gupta
