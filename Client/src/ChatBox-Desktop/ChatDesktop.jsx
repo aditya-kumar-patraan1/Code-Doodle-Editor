@@ -175,6 +175,7 @@ const ChatDesktop = ({ isLightMode, setisLightMode }) => {
   }
 
   async function closeScreen() {
+    setConfirm("");    //added newly
     setDelIsOpen(false);
   }
 
