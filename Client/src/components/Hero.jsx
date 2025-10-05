@@ -161,9 +161,9 @@ function Hero({ isLightMode, setisLightMode }) {
             onChange={(e) => setQuery(e.target.value)}
           />
           <datalist id="pages">
-            <option value="About" />
+            {/* <option value="About" />
             <option value="Developer" />
-            <option value="Contact" />
+            <option value="Contact" /> */}
             <option value="Code Reviewer" />
             <option value="Chat Box" />
             <option value="CodeDoodle Meeting" />
