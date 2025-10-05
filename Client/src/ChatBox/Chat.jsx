@@ -15,6 +15,7 @@ import axios from "axios";
 import { CgArrowsExpandUpLeft } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import {motion} from 'framer-motion';
 
 const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
@@ -181,7 +182,10 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
   return (
     <>
       <Toaster/>
-      <div
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
         className={`w-3/4 lg:w-5/6 lg:max-w-sm h-1/2 lg:h-5/6 shadow-xl  rounded-lg sm:rounded-2xl z-20 overflow-hidden border  flex flex-col border-gray-300 scrollbar-hide fixed bottom-0 right-0 mr-3 mb-3 ${
           isLightMode ? "bg-white" : "bg-gray-950"
         }`}
@@ -368,7 +372,7 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
