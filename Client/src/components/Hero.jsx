@@ -25,6 +25,7 @@ function Hero({ isLightMode, setisLightMode }) {
     "code reviewer": "/CodeReviewer",
     "chat box": "/ChatDesktop",
     "codedoodle meeting": "/Ask",
+    "code editor":"/RoomPage"
   };
 
   function findPage() {
@@ -166,6 +167,7 @@ function Hero({ isLightMode, setisLightMode }) {
             <option value="Contact" /> */}
             <option value="Code Reviewer" />
             <option value="Chat Box" />
+            <option value="Code Editor"/>
             <option value="CodeDoodle Meeting" />
           </datalist>
           <button
