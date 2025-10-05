@@ -5,34 +5,34 @@ import { useGSAP } from "@gsap/react";
 function FAQ({isLightMode,setisLightMode}) {
   const questions_answer = [
     {
-      ques: "How CodeShare works?",
+      ques: "How CodeDoodle works?",
       ans:
         "Our code-sharing website is a real-time collaborative coding platform that allows developers to write, edit, and share code seamlessly in an interactive environment. It supports multiple programming languages, live code execution, and built-in chat for instant communication. Whether you're working on a team project, conducting coding interviews, or teaching, our platform ensures smooth collaboration with features like version control, cloud storage, and customizable themes for an enhanced coding experience.",
     },
     {
-      ques: "What makes CodeShare different from other code-sharing tools?",
+      ques: "What makes CodeDoodle different from other code-sharing tools?",
       ans:
-        "Unlike traditional pastebin-style tools, CodeShare offers real-time collaboration, syntax highlighting, live preview support, chat integration, and project-based sharing — all in one place.",
+        "Unlike traditional pastebin-style tools, CodeDoodle offers real-time collaboration, syntax highlighting, live preview support, chat integration, and project-based sharing — all in one place.",
     },
     {
-      ques: "Can I use CodeShare for remote interviews and technical screenings?",
+      ques: "Can I use CodeDoodle for remote interviews and technical screenings?",
       ans:
-        "Yes! CodeShare provides a live coding environment with communication tools, perfect for interviews, pair programming, and mentorship sessions.",
+        "Yes! CodeDoodle provides a live coding environment with communication tools, perfect for interviews, pair programming, and mentorship sessions.",
     },
     {
-      ques: "Is my code safe and private on CodeShare?",
+      ques: "Is my code safe and private on CodeDoodle?",
       ans:
         "Definitely. We offer password-protected rooms, role-based access control, and encryption during code transmission to keep your data secure.",
     },
     {
-      ques: "Does CodeShare support multiple programming languages?",
+      ques: "Does CodeDoodle support multiple programming languages?",
       ans:
         "Yes! We support over 40 programming languages including JavaScript, Python, C++, Java, and more — each with syntax highlighting.",
     },
     {
-      ques: "Do I need to install anything to use CodeShare?",
+      ques: "Do I need to install anything to use CodeDoodle?",
       ans:
-        "Nope! CodeShare is fully web-based. Just open your browser, create or join a room, and you're good to go — no downloads needed.",
+        "Nope! CodeDoodle is fully web-based. Just open your browser, create or join a room, and you're good to go — no downloads needed.",
     },
   ];
 
