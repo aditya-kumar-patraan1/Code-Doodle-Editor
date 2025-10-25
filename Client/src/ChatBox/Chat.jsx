@@ -191,7 +191,7 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
         }`}
       >
         {/* Header */}
-        <div className=" shadow-md px-4 py-3 flex justify-start items-start">
+        <div className=" shadow-md px-4 pl-1 py-3 flex justify-start items-start">
           <div className="pl-3 sm:text-2xl font-bold flex items-center gap-4">
             <CgArrowsExpandUpLeft
               onClick={() => Navigate("/ChatDesktop")}
