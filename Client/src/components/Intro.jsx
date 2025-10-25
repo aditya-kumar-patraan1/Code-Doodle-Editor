@@ -66,11 +66,13 @@ const Features = ({ isLightMode, setisLightMode }) => {
   );
   const [active,setActive] = useState(0);
   const [image, setImage] = useState(CodeEditorImage);
+  const [ContentKey,setContentKey] = useState(0);
 
   const handleShifting = (idx) => {
     setTitle(allFeatures[idx].title);
     setDesc(allFeatures[idx].desc);
     setImage(allFeatures[idx].image);
+    setContentKey(idx);
     setcurrentLink(allFeatures[idx].link);
     setActive(idx);
   };
@@ -117,6 +119,7 @@ const Features = ({ isLightMode, setisLightMode }) => {
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            key={title}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="w-full md:w-3/4" // FIX: Responsive width
@@ -125,7 +128,13 @@ const Features = ({ isLightMode, setisLightMode }) => {
           </motion.div>
           
           {/* Text Content Container */}
-          <div className="w-full md:w-1/4 bg-transparent p-2 pl-5 text-left">
+          <motion.div 
+          initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            key={ContentKey}
+            viewport={{ once: true }}
+          className="w-full md:w-1/4 bg-transparent p-2 pl-5 text-left">
             <h1
               className={`text-3xl py-4 font-bold bg-transparent ${
                 isLightMode ? "text-black" : "text-white"
@@ -144,7 +153,7 @@ const Features = ({ isLightMode, setisLightMode }) => {
               <p>Try now !</p>
               <MdOpenInNew/>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
