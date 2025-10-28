@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 // import WebsiteLogo from "/src/assets/codeLogo.png";
 import CodeEditor from "./CodeEditor";
 import ClientPage from "./Client";
+import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
 import {
   useNavigate,
