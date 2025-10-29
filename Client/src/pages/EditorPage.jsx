@@ -267,7 +267,11 @@ function EditorPage({ isLightMode }) {
           </div>
 
           {isDownload && (
-            <div className="fixed inset-0 z-50 flex items-center h-screen justify-center bg-black/30">
+            <motion.div 
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 flex items-center h-screen justify-center bg-black/30">
               <div
                 className={`rounded-2xl m-6 lg:m-0 p-4 h-auto shadow-lg lg:p-6 w-full max-w-md flex flex-col gap-5 ${
                   isLightMode ? "bg-white" : "bg-gray-950"
@@ -337,7 +341,7 @@ function EditorPage({ isLightMode }) {
                   View All Folders
                 </button>
               </div>
-            </div>
+            </motion.div>
           )}
 
           <CodeEditor
