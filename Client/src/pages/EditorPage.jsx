@@ -347,6 +347,7 @@ function EditorPage({ isLightMode }) {
           <CodeEditor
             socketRef={socketRef}
             roomid={roomid}
+            username={location.state?.username}
             codeChange={codeChange}
             setfileContent={setfileContent}
             isLightMode={isLightMode}
