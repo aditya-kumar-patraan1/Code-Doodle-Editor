@@ -149,10 +149,10 @@ io.on("connection", (socket) => {
     socket.leave();
   });
 
-  socket.on("code-change", ({ roomid, code }) => {
+  socket.on("code-change", ({ username,roomid, code }) => {
     // console.log("Code-change activated");
     if (roomid && code !== undefined) {
-      socket.to(roomid).emit("code-changed", { code });
+      socket.to(roomid).emit("code-changed", {whoChanged:username,ChangerSocketId:socket.id,code });
     }
   });
 
