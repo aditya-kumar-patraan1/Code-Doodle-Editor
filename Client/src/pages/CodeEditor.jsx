@@ -6,6 +6,7 @@ import "codemirror/addon/edit/closetag";
 import "codemirror/addon/edit/closebrackets";
 import "codemirror/lib/codemirror.css";
 import "../App.css";
+import {toast,Toaster} from "react-hot-toast";
 
 const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) => {
   const editorRef = useRef(null);
@@ -43,8 +44,11 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
 
   useEffect(() => {
     if (socketRef.current) {
-      socketRef.current.on("code-changed", ({ code }) => {
+      socketRef.current.on("code-changed", ({ whoChanged,ChangerSocketId,code }) => {
         if (code !== null) {
+          if(code==""){
+            toast.success(`code changed by ${whoChanged}`);
+          }
           editorRef.current.setValue(code);
         }
       });
@@ -57,9 +61,10 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
   }, [socketRef.current]);
 
   return (
-    // <div style={{ height: "100vh" }}>
+    <>
+      <Toaster/>
       <textarea id="realtimeeditor" className="overflow-auto hide-scrollbar"/>
-    // {/* </div> */}
+    </>
   );
 };
 
