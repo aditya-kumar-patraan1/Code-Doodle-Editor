@@ -47,7 +47,9 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
       socketRef.current.on("code-changed", ({ whoChanged,ChangerSocketId,code }) => {
         if (code !== null) {
           if(code==""){
-            toast.success(`code changed by ${whoChanged}`);
+            const preservedCode=editorRef.current.getValue();
+            toast.success(`Code removed by ${whoChanged}`);
+            toast.succes(`and code is : {preservedCode}`)
           }
           editorRef.current.setValue(code);
         }
