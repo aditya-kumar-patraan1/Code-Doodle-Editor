@@ -14,7 +14,7 @@ const router6 = require("./Routings/ThemeRoutes");
 const Router7 = require("./Routings/ContactRoutes");
 
 require("dotenv").config();
-
+ 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
