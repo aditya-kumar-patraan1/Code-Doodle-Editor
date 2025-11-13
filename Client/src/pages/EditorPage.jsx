@@ -32,6 +32,8 @@ function EditorPage({ isLightMode }) {
   const [userlist, setUserlist] = useState([]);
   const code = useRef(null);
   const [fileContent, setfileContent] = useState("");
+  const [changerName,setchangerName] = useState("");
+  const timerRef= useRef(null);
 
   function codeChange(myCode) {
     code.current = myCode;
@@ -126,6 +128,19 @@ function EditorPage({ isLightMode }) {
           code: code.current,
         });
       });
+
+      socketRef.current.on("show-who-changed",({whoChanged}=>{
+        if(timerRef.current){
+          clearTimeout(timerRef.current);
+        }
+
+        setchangerName(whoChanged);
+
+        timerRef.current = setTimeout(()=>{
+           setchangerName("");
+         },1000)
+        
+      })
 
       socketRef.current.on("user-leaved", ({ username, socketid }) => {
         toast(`${username} left the room`, {
@@ -251,6 +266,15 @@ function EditorPage({ isLightMode }) {
           }`}
         >
           <div className="bg-transparent w-full flex flex-row justify-end">
+            {changerName && (
+              <div
+                className={`w-fit self-end m-1 lg:m-2 rounded-lg lg:rounded-lg lg:px-2 px-3 lg:py-2 py-1 text-[12px] lg:text-sm md:text-base disabled:opacity-60 disabled:cursor-not-allowed text-white
+            `}
+                onClick={() => code.current && setisDownload(true)}
+              >
+                <p>{changerName} is typing ....</p>
+              </div>
+            )}
             <button className="w-fit self-end m-1 lg:m-2 rounded-lg lg:rounded-lg lg:px-5 px-3 lg:py-2 py-2 lg:text-[12px] lg:text-sm md:text-base gap-2 transition-all hover:cursor-pointer hover:scale-95 active:scale-90 disabled:opacity-60 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white">
               <RxSpeakerLoud
                 className="text-[10px] lg:text-xl"
