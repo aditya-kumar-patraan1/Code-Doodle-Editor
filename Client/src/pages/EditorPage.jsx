@@ -129,7 +129,7 @@ function EditorPage({ isLightMode }) {
         });
       });
 
-      socketRef.current.on("show-who-changed",({whoChanged}=>{
+      socketRef.current.on("show-who-changed",({whoChanged})=>{
         if(timerRef.current){
           clearTimeout(timerRef.current);
         }
