@@ -153,6 +153,7 @@ io.on("connection", (socket) => {
     // console.log("Code-change activated");
     if (roomid && code !== undefined) {
       socket.to(roomid).emit("code-changed", {whoChanged:username,ChangerSocketId:socket.id,code });
+      socket.io(roomid).emity("show-who-changed",{whoChanged:username});
     }
   });
 
