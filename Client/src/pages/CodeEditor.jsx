@@ -22,6 +22,8 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
   const isLightMode = false;
   const [whoChangedCode, setWhoChangedCode] = useState("");
   const [FileRecoveryCode, setFileRecoveryCode] = useState("");
+  const [isExist, setisExist] = useState(false);
+  
 
   const handleCloseDialoug = () => {
     setopen(false);
@@ -42,6 +44,14 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
       fileContent: FileRecoveryCode,
       fileName: fileName,
     });
+    //console.log("Response from adding to recycle bin:", response);
+    if(response.data.status == 2){
+      setisExist(true);
+    }
+    else{
+      setisExist(false);
+      if(response.data.status==0) setfileName("");
+    }
   };
 
   useEffect(() => {
@@ -160,11 +170,11 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
               />
             </div>
 
-            {/* {isExist && (
+            {isExist && (
               <p className="text-red-500 text-center lg:text-start text-sm lg:text-1xl">
                 **File with same name already exist
               </p>
-            )} */}
+            )}
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
               <button
