@@ -184,8 +184,19 @@ const addFileToRecycleBin = async (req, res) => {
     // console.log("Adding to recycle bin:", { removedBy, fileContent, fileName });
     // console.log("User before adding to recycle bin:", myUser);
 
+    const lowercaseFileName = fileName.toLowerCase();
+    
+    const isfileExists = await myUser.recycleBin.some((file)=>file.fileName == lowercaseFileName);
+
+    if(isfileExists){
+      return res.send({
+        status:2,
+        message:"File already exists with the same name.."
+      })
+    }
+    
     myUser.recycleBin.push({
-      removedBy, fileContent, fileName
+      removedBy, fileContent, fileName:lowercaseFileName
     });
 
     await myUser.save();
