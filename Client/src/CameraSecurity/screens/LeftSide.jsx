@@ -925,6 +925,8 @@ import ReactPlayer from "react-player";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+//added
+import {useRef} from "react";
 
 import peer from "../service/peer";
 import { useSocket } from "../context/SocketProvider";
@@ -965,6 +967,9 @@ export const LeftSide = ({ room, email }) => {
     const [cameraOn, setCameraOn] = useState(true);
     const [CommentOn, setCommentOn] = useState(false);
     const [isEmojiOpen, setisEmojiOpen] = useState(false);
+
+    //added
+    const audioRef = useRef(null);
     
     // ===> 2. DONO PLAYERS KE LIYE ALAG-ALAG PIP STATE BANAYE GAYE HAIN
     const [remotePipEnabled, setRemotePipEnabled] = useState(false);
@@ -1061,15 +1066,39 @@ export const LeftSide = ({ room, email }) => {
       const ans = await peer.getAnswer(offer);
       socket.emit("call:accepted", { to: from, ans });
       toast.success("Send the Stream");
+
+        //added
+
+        if(audioRef.current){
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+        }
+        
     };
   
     const handleDeclineCall = () => {
       setShowPrompt(false);
       setIncomingCall(null);
+
+        //added
+
+        if(audioRef.current){
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+        }
+        
     };
   
     const renderAcceptDeclinePrompt = () => {
       if (!showPrompt) return null;
+
+
+        //added
+        if(!audioRef.current){
+            audioRef.current = new Audio("/PhoneRingtone.mp3");
+            audioRef.current.loop = true;
+        }
+        
       return (
           <AnimatePresence>
               <motion.div
@@ -1239,7 +1268,7 @@ export const LeftSide = ({ room, email }) => {
             <header className="absolute top-4 left-0 w-full px-4 z-10 flex justify-between items-center">
                 <div className="flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                   <LuShieldCheck className="text-emerald-400" />
-                  <span className="font-semibold">StillMind</span>
+                  <span className="font-semibold">CodeDoodle</span>
                 </div>
                 {!isConnected?(<div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                   <span className={`h-2.5 w-2.5 rounded-full ${isConnected ? "bg-green-500 animate-pulse" : "bg-red-500"}`}></span>
