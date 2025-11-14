@@ -13,13 +13,13 @@ import { motion } from "framer-motion";
 import { GoAlertFill } from "react-icons/go";
 import { useAppContext } from "../Context/AppContext";
 
-const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) => {
+const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent,isLightMode }) => {
   const editorRef = useRef(null);
   //added
   const { addFileToRecycleBin } = useAppContext();
   const [open, setopen] = useState(false);
   const [fileName, setfileName] = useState("");
-  const isLightMode = false;
+  // const isLightMode = false;
   const [whoChangedCode, setWhoChangedCode] = useState("");
   const [FileRecoveryCode, setFileRecoveryCode] = useState("");
   const [isExist, setisExist] = useState(false);
@@ -143,7 +143,7 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
           >
             <div className="flex flex-col sm:flex-row bg-transparent gap-4 sm:gap-7 my-3 items-center w-[100%] px-3">
               <GoAlertFill className="bg-transparent text-[#F0C21C] text-5xl" />
-              <div className="text-sm font-light text-white flex flex-col">
+              <div className={`${isLightMode?"text-black":"text-white"} text-sm font-light flex flex-col`}>
                 <p>
                   Code is trying to be deleted by{" "}
                   <span className="font-bold">{whoChangedCode}.</span>
