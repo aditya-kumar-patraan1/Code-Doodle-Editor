@@ -6,5 +6,7 @@ const {addFile, deleteFile, deleteOneFile} = require('../Controllers/folderContr
 router4.post('/addFile',userAuth, addFile);
 router4.post('/deleteFile',userAuth, deleteFile);
 router4.post("/deleteOneFile",userAuth,deleteOneFile);
+//added for recycle din
+router4.post("/addToRecycleBin",userAuth,addFileToRecycleBin);
 
 module.exports = router4;
