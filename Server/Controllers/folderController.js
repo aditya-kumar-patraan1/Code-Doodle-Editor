@@ -150,8 +150,61 @@ const deleteOneFile = async (req, res) => {
   }
 };
 
+const addFileToRecycleBin = async (req, res) => {
+  const { removedBy, fileContent, fileName } = req.body;
+  const userId = req.body.userId;
+
+  if (!userId) {
+    return res.send({
+      status: 0,
+      message: "User ID not found..."
+    })
+  }
+
+  // console.log("User id is : ", userId);
+
+  if(!removedBy || !fileContent || !fileName){
+    return res.send({
+      status: 0,
+      message: "Details are incomplete..."
+    })
+  }
+
+  try {
+
+    const myUser = await myModel.findById(userId);
+
+    if (!myUser) {
+      return res.send({
+        status: 0,
+        message: "User not found...",
+      });
+    }
+
+    // console.log("Adding to recycle bin:", { removedBy, fileContent, fileName });
+    // console.log("User before adding to recycle bin:", myUser);
+
+    myUser.recycleBin.push({
+      removedBy, fileContent, fileName
+    });
+
+    await myUser.save();
+
+    return res.send({
+      status: 1,
+      message: "File added to Recycle Bin Successfully..."
+    })
+  } catch (e) {
+    return res.send({
+      status: 0,
+      message: e.message
+    })
+  }
+}
+
 module.exports = {
   addFile,
   deleteFile,
-  deleteOneFile
+  deleteOneFile,
+  addFileToRecycleBin
 };
