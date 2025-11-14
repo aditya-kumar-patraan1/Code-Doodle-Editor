@@ -50,7 +50,13 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
     }
     else{
       setisExist(false);
-      if(response.data.status==0) setfileName("");
+      if(response.data.status==0){
+        toast.error("Error adding file to recycle bin");
+        setfileName("");
+      }
+      else{ 
+        toast.success("File added to recycle bin");
+      }
     }
   };
 
