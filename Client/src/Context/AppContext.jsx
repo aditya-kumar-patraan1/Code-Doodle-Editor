@@ -67,6 +67,7 @@ export const AppProvider = (props) => {
         toast.error("Error adding file to recycle bin");
         // console.log("Error adding file to recycle bin:", response.data.message);
       }
+      return response;
     }catch(e){
       // console.log("Error adding file to recycle bin:", e);
     }
