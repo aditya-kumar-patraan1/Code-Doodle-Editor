@@ -59,14 +59,14 @@ export const AppProvider = (props) => {
       },{
         withCredentials: true
       });
-      if(response.data.status == 1){
-        toast.success("File added to recycle bin");
+      // if(response.data.status == 1){
+      //   toast.success("File added to recycle bin");
         // console.log("File added to recycle bin successfully");
-      }
-      else{
-        toast.error("Error adding file to recycle bin");
+      // }
+      // else{
+        // toast.error("Error adding file to recycle bin");
         // console.log("Error adding file to recycle bin:", response.data.message);
-      }
+      // }
       return response;
     }catch(e){
       // console.log("Error adding file to recycle bin:", e);
