@@ -30,9 +30,9 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
     setfileName("");
   };
 
-  console.log("Changed by : ", whoChangedCode);
-  console.log("File Name is : ", fileName);
-  console.log("File Content is : ", FileRecoveryCode);
+  // console.log("Changed by : ", whoChangedCode);
+  // console.log("File Name is : ", fileName);
+  // console.log("File Content is : ", FileRecoveryCode);
 
   const handleAddingToRecycleBin = async () => {
     if (fileName.trim() === "") {
@@ -96,11 +96,11 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
                 preservedCode == null ||
                 preservedCode.length <= 1
               ) {
-                console.log("abe bhai kum hai length");
+                // console.log("abe bhai kum hai length");
               } else {
-                toast.success(
-                  `Changed by ${whoChanged}, Now the editor is empty ${preservedCode}`
-                );
+                // toast.success(
+                //   `Changed by ${whoChanged}, Now the editor is empty ${preservedCode}`
+                // );
                 setWhoChangedCode(whoChanged);
                 setFileRecoveryCode(preservedCode);
                 //added
