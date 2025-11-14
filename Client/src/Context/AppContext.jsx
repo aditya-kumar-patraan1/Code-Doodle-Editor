@@ -3,6 +3,8 @@ import { createContext, useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 const AppContext = createContext();
+//added toast
+import {toast} from "react-hot-toast";
 
 export const useAppContext = () => useContext(AppContext);
 
@@ -50,6 +52,26 @@ export const AppProvider = (props) => {
     }
   };
 
+  const addFileToRecycleBin = async ({removedBy,fileContent,fileName})=>{
+    try{
+      const response = await axios.post(`${BACKEND_URL}/api/file/addToRecycleBin`,{
+        removedBy,fileContent,fileName
+      },{
+        withCredentials: true
+      });
+      if(response.data.status == 1){
+        toast.success("File added to recycle bin");
+        // console.log("File added to recycle bin successfully");
+      }
+      else{
+        toast.error("Error adding file to recycle bin");
+        // console.log("Error adding file to recycle bin:", response.data.message);
+      }
+    }catch(e){
+      // console.log("Error adding file to recycle bin:", e);
+    }
+  }
+
   useEffect(()=>{
     getAuthState();
   },[])
@@ -62,6 +84,7 @@ export const AppProvider = (props) => {
     setUserData,
     getUserData,
     getAuthState,
+    addFileToRecycleBin
   };
 
   return (
