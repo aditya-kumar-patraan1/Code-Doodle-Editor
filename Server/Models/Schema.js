@@ -51,6 +51,28 @@ const mySchema = new mongoose.Schema(
         },
       },
     ],
+    //added-begin
+    recycleBin: [
+      {
+        dateDeleted: {
+          type: Date,
+          default: Date.now
+        },
+        removedBy: {
+          type: String,
+          required: true
+        },
+        fileContent: {
+          type: String,
+          required: true
+        },
+        fileName: {
+          type: String,
+          required: true
+        }
+      }
+    ],
+    //added-end
     allChats: [
       {
         date : {
