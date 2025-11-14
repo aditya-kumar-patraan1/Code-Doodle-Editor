@@ -39,7 +39,7 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent }) =>
       toast.error("File name cannot be empty");
       return;
     }
-    await addFileToRecycleBin({
+    const response = await addFileToRecycleBin({
       removedBy: whoChangedCode,
       fileContent: FileRecoveryCode,
       fileName: fileName,
