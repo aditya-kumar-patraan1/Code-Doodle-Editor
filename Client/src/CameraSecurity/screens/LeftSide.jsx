@@ -1098,6 +1098,8 @@ export const LeftSide = ({ room, email }) => {
             audioRef.current = new Audio("/PhoneRingtone.mp3");
             audioRef.current.loop = true;
         }
+
+        audioRef.current.play();  //added playing button
         
       return (
           <AnimatePresence>
