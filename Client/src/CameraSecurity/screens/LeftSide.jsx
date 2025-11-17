@@ -1025,6 +1025,20 @@ export const LeftSide = ({ room, email }) => {
     };
   
     const cutCall = () => {
+
+        // if(audioRef.current){
+        //     audioRef.current.pause();
+        //     audioRef.current.currentTime=0;
+        // }
+
+
+        //added after 3 days
+
+        if(audioRef.current){
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+        }
+        
       if (myStream) {
         myStream.getTracks().forEach((track) => track.stop());
       }
