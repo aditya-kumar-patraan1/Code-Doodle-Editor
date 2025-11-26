@@ -25,15 +25,15 @@ const Register = ({ isLightMode, setisLightMode }) => {
         // console.log("Form data sent to Backend: ", myData.data);
         setFormdata({ name: "", email: "", password: "" });
 
-        if (myData.data.status === 1) {
+        // if (myData.data.status === 1) {
           toast.success("Registered Successfully...");
           setisLoggedIn(true);
           getUserData();
-          Navigate("/");
-        } else {
-          toast.error("Registration not done...");
-          setisLoggedIn(false);
-        }
+          Navigate("/login");
+        // } else {
+          // toast.error("Registration not done...");
+          // setisLoggedIn(false);
+        // }
       })
       .catch((e) => {
         // console.log(`Form data not sent to Backend...`);
