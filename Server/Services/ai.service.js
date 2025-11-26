@@ -3,7 +3,7 @@ const { GoogleGenAI } = require("@google/genai");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const myAPI = "AIzaSyB9djTBGPjdbU3Uu4bRzIBl13baezYwql8";
+const myAPI = "AIzaSyB3C0TiSMs1WwYwkaGStfRGcy_DrW9bugY";
 const ai = new GoogleGenAI({apiKey:myAPI});
 
 const main = async (prompt) => {
