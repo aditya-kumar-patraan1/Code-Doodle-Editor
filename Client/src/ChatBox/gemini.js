@@ -28,7 +28,7 @@
 // export default generateContent;
 import { GoogleGenAI } from "@google/genai";
 
-const API_KEY="AIzaSyBkljrv58uEQagUlfqNW8s7jbtmUSfwekw";
+const API_KEY="AIzaSyDOv0HjtrCpkNlbso1VDmC30kZJHvNP7i0";
 
 const ai = new GoogleGenAI({ apiKey: API_KEY});
 
