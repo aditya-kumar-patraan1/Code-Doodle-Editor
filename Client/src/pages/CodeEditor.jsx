@@ -213,7 +213,7 @@ const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent,isLig
               className={`cursor-pointer text-end text-sm hover:underline ${
                 isLightMode ? "text-blue-700" : "text-green-400"
               }`}
-              onClick={() => navigate("/workspace")}
+              onClick={() => navigate("/RecycleBinFolderPage")}
             >
               View Recycle Bin
             </button>
