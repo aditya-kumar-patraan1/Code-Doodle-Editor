@@ -213,9 +213,43 @@ const addFileToRecycleBin = async (req, res) => {
   }
 }
 
+const getRecycleBinFiles = async (req, res) => {
+  const userId = req.body.userId;
+
+  // console.log("User id is : ", userId);
+
+  if(!userId){
+    return res.send({
+      status : 0,
+      message : "User not found"
+    })
+  }
+
+  try{
+
+    const myUser = await myModel.findById(userId);
+
+    const allFiles = myUser.recycleBin;
+    // console.log(allFiles);
+
+    return res.send({
+      status : 1,
+      allFiles
+    })
+
+  }catch(e){
+    res.send({
+      status : 0,
+      message : e.message
+    })
+  }
+
+}
+
 module.exports = {
   addFile,
   deleteFile,
   deleteOneFile,
-  addFileToRecycleBin
+  addFileToRecycleBin,
+  getRecycleBinFiles
 };
