@@ -20,6 +20,7 @@ const getUserData = async (req, res) => {
         allFiles: myInfo.allFiles,
         isLightMode : myInfo.isLightMode,
         allChats:myInfo.allChats
+        allRecycleBinFiles:myInfo.recycleBin
       },
     });
   } catch (e) {
