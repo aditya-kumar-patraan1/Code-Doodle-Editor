@@ -12,9 +12,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { GoAlertFill } from "react-icons/go";
 import { useAppContext } from "../Context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const CodeEditor = ({ socketRef, roomid,username,codeChange,setfileContent,isLightMode }) => {
   const editorRef = useRef(null);
+  const navigate = useNavigate();
   //added
   const { addFileToRecycleBin } = useAppContext();
   const [open, setopen] = useState(false);
