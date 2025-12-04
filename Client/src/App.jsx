@@ -25,6 +25,7 @@ import VerifyEmail from "./Auth/verifyEmail.jsx";
 import { useAppContext } from "./Context/AppContext.jsx";
 import Instruction from "./components/Instruction.jsx";
 import Ask from "./components/Ask.jsx";
+import RecycleBinFolder from "./components/RecycleBinFolder.jsx";
 
 function App() {
   const { userData } = useAppContext();
@@ -61,6 +62,7 @@ function App() {
         <Route path="/verifyEmail" element={<VerifyEmail key={location.key} isLightMode={isLightMode} setisLightMode={setisLightMode} />} />
         <Route path="/LobbyPage" element={<LobbyScreen key={location.key} isLightMode={isLightMode} setisLightMode={setisLightMode} />} />
         <Route path="/Developer" element={<Developer key={location.key} isLightMode={isLightMode} setisLightMode={setisLightMode} />} />
+        <Route path="/RecycleBinFolderPage" element={<RecycleBinFolder />} />
       </Routes>
     </>
   );
