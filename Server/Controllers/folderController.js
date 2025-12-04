@@ -229,12 +229,12 @@ const getRecycleBinFiles = async (req, res) => {
 
     const myUser = await myModel.findById(userId);
 
-    const allFiles = myUser.recycleBin;
+    const allRecycleBinFiles = myUser.recycleBin;
     // console.log(allFiles);
 
     return res.send({
       status : 1,
-      allFiles
+      allRecycleBinFiles
     })
 
   }catch(e){
