@@ -19,7 +19,7 @@ const getUserData = async (req, res) => {
         isAccountVerified: myInfo.isAccountVerified,
         allFiles: myInfo.allFiles,
         isLightMode : myInfo.isLightMode,
-        allChats:myInfo.allChats
+        allChats:myInfo.allChats,
         allRecycleBinFiles:myInfo.recycleBin
       },
     });
