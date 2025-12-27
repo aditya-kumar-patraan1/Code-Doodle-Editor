@@ -1,15 +1,14 @@
-const { GoogleGenAI } = require("@google/genai");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const dotenv = require("dotenv");
 dotenv.config();
 
-const myAPI = "AIzaSyB3C0TiSMs1WwYwkaGStfRGcy_DrW9bugY";
-const ai = new GoogleGenAI({apiKey:myAPI});
+const myAPI = process.env.GOOGLE_GEMINI_KEY;
+const ai = new GoogleGenerativeAI(myAPI);
 
 const main = async (prompt) => {
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: prompt,
+  const model = ai.getGenerativeModel({
+    model: "gemini-2.5-flash-lite",
     systemInstruction: `
   Here’s a solid system instruction for your AI code reviewer:
 
@@ -87,16 +86,15 @@ const main = async (prompt) => {
     `,
   });
 
-  // console.log("Generating code review...");
-  // const result = await model.generateContent(prompt);
-  console.log(response.text);
-  // const response = await result.response;
-  return response.text;
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = await response.text();
 
-  // return text;
+  // console.log(text);
+  return text;
 };
 
-module.exports = { main };
+module.exports = {main};
 
 // for creating API key
 // https://console.cloud.google.com/apis/credentials?invt=AbupBw&project=kinetic-bot-456711-f3
