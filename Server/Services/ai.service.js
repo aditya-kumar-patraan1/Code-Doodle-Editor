@@ -3,7 +3,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const myAPI = process.env.GOOGLE_GEMINI_KEY;
+const myAPI = "AIzaSyBq8UIixSTmVTjwIXw092vyvS0Ih_wAYA4";
 const ai = new GoogleGenerativeAI(myAPI);
 
 const main = async (prompt) => {
