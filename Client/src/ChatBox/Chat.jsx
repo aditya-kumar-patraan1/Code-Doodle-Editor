@@ -638,22 +638,22 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
   }
 
   // 🔥 CHANGE: Delete individual message function
-  async function deleteMessage(messageId) {
-    try {
-      await axios.post(
-        `${BACKEND_URL}/api/chats/deleteSpecificMessage`,
-        { messageId },
-        { withCredentials: true }
-      );
+  // async function deleteMessage(messageId) {
+  //   try {
+  //     await axios.post(
+  //       `${BACKEND_URL}/api/chats/deleteSpecificMessage`,
+  //       { messageId },
+  //       { withCredentials: true }
+  //     );
       
-      setactualList(prev => prev.filter(item => item.id !== messageId && item.date !== messageId));
-      toast.success("Message deleted successfully");
-      getUserData();
-    } catch (error) {
-      // console.error("Error deleting message:", error);
-      toast.error("Failed to delete message");
-    }
-  }
+  //     setactualList(prev => prev.filter(item => item.id !== messageId && item.date !== messageId));
+  //     toast.success("Message deleted successfully");
+  //     getUserData();
+  //   } catch (error) {
+  //     // console.error("Error deleting message:", error);
+  //     toast.error("Failed to delete message");
+  //   }
+  // }
 
   // 🔥 CHANGE: Enhanced message formatting function for AI responses
   function formatAIResponse(text) {
@@ -761,13 +761,13 @@ const Chat = ({ setisChatOpen, isLightMode, setisLightMode }) => {
                   <FaEdit />
                 </button>
                 {/* 🔥 CHANGE: Added delete button for individual messages */}
-                <button
+                {/* <button
                   onClick={() => deleteMessage(item.id || item.date)}
                   className="text-red-500 hover:text-red-700 text-xs p-1"
                   title="Delete"
                 >
                   <FaTrash />
-                </button>
+                </button> */}
               </div>
             </div>
             
