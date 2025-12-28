@@ -54,7 +54,7 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const apiKey = "AIzaSyDFmaljErEkyeT2wYIGv-DE_h-NGDDHxZc";
+const apiKey = "AIzaSyBq8UIixSTmVTjwIXw092vyvS0Ih_wAYA4";
 const genAI = new GoogleGenerativeAI(apiKey);
 
 function stripMarkdown(text) {
