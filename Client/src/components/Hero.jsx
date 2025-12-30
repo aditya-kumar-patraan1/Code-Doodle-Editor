@@ -196,8 +196,6 @@ function Hero({ isLightMode, setisLightMode }) {
             isLightMode ? "bg-blue-600" : "bg-green-600"
           } text-white px-4 py-2 font-light lg:px-6 lg:py-3 ${
             userData ? "" : " cursor-not-allowed"
-          } ${
-            userData?.isAccountVerified ? "" : "cursor-not-allowed"
           } rounded-full text_dm lg:text-lg lg:font-semibold hover:bg-transparent ${
             isLightMode
               ? "border hover:border-blue-600 hover:text-blue-600"
