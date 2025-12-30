@@ -65,7 +65,12 @@ const  Profile = ({ userName, isLightMode, setisLightMode }) => {
           showList ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
         }`}
       >
-        {!userData?.isAccountVerified && (
+
+        {/* CAUTION */}
+
+
+        
+        {/* /* {!userData?.isAccountVerified && (
           <button
             onClick={()=>gotopage()}
             className={`block w-full text-left px-4 py-2 hover:bg-gray-200 text-sm ${
@@ -74,7 +79,7 @@ const  Profile = ({ userName, isLightMode, setisLightMode }) => {
           >
             Verify Email
           </button>
-        )}
+        )} */ }
 
         {isLoggedIn && (
           <button
