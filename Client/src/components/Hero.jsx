@@ -191,7 +191,7 @@ function Hero({ isLightMode, setisLightMode }) {
         </h2>
 
         <button
-          onClick={() => {!userData ? toast.error("Login/Register to access the tools") : Navigate("/RoomPage") }
+          onClick={() => (!userData ? toast.error("Login/Register to access the tools") : Navigate("/RoomPage")) }
           className={`${
             isLightMode ? "bg-blue-600" : "bg-green-600"
           } text-white px-4 py-2 font-light lg:px-6 lg:py-3 ${
