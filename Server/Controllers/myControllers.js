@@ -42,27 +42,27 @@ const register = async (req, res) => {
 
     //sending welcome MAIL message to anshu
 
-    const mailDetails = {
-      from: process.env.SENDER_EMAIL,
-      to: email,
-      subject: "Welcome to CodeDoodle!",
-      html: `
-    <div style="font-family: Arial, sans-serif; padding: 20px;">
-      <h2 style="color: #2c3e50;">Hello,</h2>
-      <p><strong>${name}</strong> has just signed in to <strong>CodeDoodle</strong> — a collaborative platform where developers can:</p>
-      <ul style="margin: 16px 0; padding-left: 20px;">
-        <li>Connect with other developers</li>
-        <li>Live-code in real-time</li>
-        <li>Save and share coding sessions</li>
-        <li>Get AI-powered code reviews</li>
-      </ul>
-      <p>We're excited to have you on board. Let’s build something amazing together!</p>
-      <p style="margin-top: 30px;">Happy Coding!<br/><strong>– The CodeDoodle Team</strong></p>
-    </div>
-  `,
-    };
+  //   const mailDetails = {
+  //     from: process.env.SENDER_EMAIL,
+  //     to: email,
+  //     subject: "Welcome to CodeDoodle!",
+  //     html: `
+  //   <div style="font-family: Arial, sans-serif; padding: 20px;">
+  //     <h2 style="color: #2c3e50;">Hello,</h2>
+  //     <p><strong>${name}</strong> has just signed in to <strong>CodeDoodle</strong> — a collaborative platform where developers can:</p>
+  //     <ul style="margin: 16px 0; padding-left: 20px;">
+  //       <li>Connect with other developers</li>
+  //       <li>Live-code in real-time</li>
+  //       <li>Save and share coding sessions</li>
+  //       <li>Get AI-powered code reviews</li>
+  //     </ul>
+  //     <p>We're excited to have you on board. Let’s build something amazing together!</p>
+  //     <p style="margin-top: 30px;">Happy Coding!<br/><strong>– The CodeDoodle Team</strong></p>
+  //   </div>
+  // `,
+  //   };
 
-    await transporter.sendMail(mailDetails);
+  //   await transporter.sendMail(mailDetails);
 
     return res.send({
       status: 1,
