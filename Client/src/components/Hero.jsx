@@ -33,10 +33,10 @@ function Hero({ isLightMode, setisLightMode }) {
       toast.error("Login/Register to access the tools");
       return;
     }
-    if(!userData?.isAccountVerified){
-      toast.error("Verify Account to access the tools");
-      return;
-    }
+    // if(!userData?.isAccountVerified){
+    //   toast.error("Verify Account to access the tools");
+    //   return;
+    // }
     if (!Query) {
       toast.error("Please enter a page name");
       return;
