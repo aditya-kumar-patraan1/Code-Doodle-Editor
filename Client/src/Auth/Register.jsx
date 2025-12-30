@@ -27,8 +27,8 @@ const Register = ({ isLightMode, setisLightMode }) => {
 
         // if (myData.data.status === 1) {
           toast.success("Registered Successfully...");
-          setisLoggedIn(true);
-          getUserData();
+          // setisLoggedIn(true);
+          // getUserData();
           Navigate("/LoginPage");
         // } else {
           // toast.error("Registration not done...");
