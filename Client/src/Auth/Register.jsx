@@ -29,7 +29,7 @@ const Register = ({ isLightMode, setisLightMode }) => {
           toast.success("Registered Successfully...");
           setisLoggedIn(true);
           getUserData();
-          Navigate("/login");
+          Navigate("/LoginPage");
         // } else {
           // toast.error("Registration not done...");
           // setisLoggedIn(false);
