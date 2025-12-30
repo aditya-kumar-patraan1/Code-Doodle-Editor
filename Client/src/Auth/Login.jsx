@@ -88,21 +88,21 @@ const Login = ({ isLightMode, setisLightMode }) => {
           </div>
 
           {/* Submit & Forgot Password */}
-          {/* <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 mt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 mt-4">
             <button
               type="submit"
               className={`w-full sm:w-auto text-sm sm:text-base px-5 py-2.5 rounded-lg font-medium text-white transition duration-300 ${isLightMode ? "bg-blue-600 hover:bg-blue-700" : "bg-green-500 hover:bg-green-600"}`}
             >
               Login
             </button>
-            <button
+             {/* <button
               type="button"
-              className={`text-sm sm:text-base ${isLightMode ? "text-blue-600" : "text-green-400"} hover:underline`}
-              onClick={() => Navigate("/RegisteredEmail")}
-            >
-              Forgot Password?
-            </button>
-          </div> */}
+               className={`text-sm sm:text-base ${isLightMode ? "text-blue-600" : "text-green-400"} hover:underline`}
+               onClick={() => Navigate("/RegisteredEmail")}
+             >
+               Forgot Password?
+             </button> */}
+          </div> 
         </form>
 
         {/* Register Link */}
