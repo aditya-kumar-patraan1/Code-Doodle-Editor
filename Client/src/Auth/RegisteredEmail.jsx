@@ -7,10 +7,11 @@ import { useNavigate } from "react-router-dom";
 const RegisteredEmail = ({ isLightMode, setisLightMode }) => {
   const Navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   function sentToBackend() {
     axios
-      .post(`https://code-doodle-editor-6.onrender.com/api/auth/verifyOTPforPasswordReset/`,{email})
+      .post(`${BACKEND_URL}/api/auth/verifyOTPforPasswordReset/`,{email})
       .then(() => {
         // console.log(`Email sent to Backend to send OTP for reset Password`);
         toast.success("Email submitted. Please check your inbox.");
