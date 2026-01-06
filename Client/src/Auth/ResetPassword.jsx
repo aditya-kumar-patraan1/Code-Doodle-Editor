@@ -10,6 +10,7 @@ const ResetPassword = ({ isLightMode, setisLightMode }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const Navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleReset = (e) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const ResetPassword = ({ isLightMode, setisLightMode }) => {
       password
     }
 
-    axios.put("https://code-doodle-editor-6.onrender.com/api/auth/resetPassword",myData).then(()=>{
+    axios.put(`${BACKEND_URL}/api/auth/resetPassword`,myData).then(()=>{
       // console.log("Data sent to backend");
     }).catch((e)=>{
       // console.log("Data not sent to Backend");
