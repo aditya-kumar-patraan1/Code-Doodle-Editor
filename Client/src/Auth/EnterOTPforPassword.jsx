@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const EnterOTPforPassword = ({ isLightMode, setisLightMode }) => {
   const location = useLocation();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const email =
     location.state?.email || localStorage.getItem("registeredEmail");
@@ -17,7 +18,7 @@ const EnterOTPforPassword = ({ isLightMode, setisLightMode }) => {
 
   function sentToBackend() {
     axios
-      .post(`https://code-doodle-editor-6.onrender.com/api/auth/verifyOTPforPasswordReset/`,{email})
+      .post(`${BACKEND_URL}/api/auth/verifyOTPforPasswordReset/`,{email})
       .then(() => {
         // console.log(`Email sent to Backend to send OTP for reset Password`);
         toast.success("Email submitted. Please check your inbox.");
@@ -45,7 +46,7 @@ const EnterOTPforPassword = ({ isLightMode, setisLightMode }) => {
 
     axios
       .post(
-        "https://code-doodle-editor-6.onrender.com/api/auth/CheckverifyOTPforPasswordReset",
+        `${BACKEND_URL}/api/auth/CheckverifyOTPforPasswordReset`,
         myData
       )
       .then((res) => {
