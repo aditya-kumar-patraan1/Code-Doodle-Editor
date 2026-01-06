@@ -27,10 +27,10 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 ## Demo Images
 
 - Home Page
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767289833/xu4kmsvgwfnbahwqgpkw.png" alt="Codedoodle Home page" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/pic1_rcpyge.png" alt="Codedoodle Home page" />
 
 - Real-time Code Editor Panel
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249979/ztn4jsxugf8bnphhmtzp.png" width="600" alt="Real time code editor panel" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/camera_and_code_fca3gp.png" width="600" alt="Real time code editor panel" />
 
 - Code Reviewer
 <img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/CodeReviewer_nrqlxq.png" width="600" alt="Code reviewer" />
