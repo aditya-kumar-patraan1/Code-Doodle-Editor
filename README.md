@@ -33,13 +33,13 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 <img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249979/ztn4jsxugf8bnphhmtzp.png" width="600" alt="Real time code editor panel" />
 
 - Code Reviewer
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Code reviewer" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/CodeReviewer_nrqlxq.png" width="600" alt="Code reviewer" />
 
 - Codedoodle ChatBot
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Codedoodle Chatbot" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/chatbot_sumch1.png" width="600" alt="Codedoodle Chatbot" />
 
 - Video Meeting using WebRTC
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Video Meeting using WebRTC" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/meeting_adi_harsh_iao6xv.png" width="600" alt="Video Meeting using WebRTC" />
 
 - Workspace
 <img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/workspace_g526bc.png" width="600" alt="workspace" />
