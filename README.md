@@ -11,6 +11,12 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 
 ---
 
+## Demo Images
+
+
+
+---
+
 ## ✨ Features
 
 - 🔑 **User Authentication & Email Verification** for secure access  
