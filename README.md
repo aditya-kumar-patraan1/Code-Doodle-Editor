@@ -5,18 +5,6 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 
 ---
 
-## Live Demo
-
-🚀 You can try my hosted project here: [[CodeDoodle - Live Demo](https://code-doodle-editor.vercel.app/)](#)  
-
----
-
-## Demo Images
-
-
-
----
-
 ## ✨ Features
 
 - 🔑 **User Authentication & Email Verification** for secure access  
@@ -27,6 +15,31 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 - 📚 **Interactive Guides & Demo Video** to help beginners understand the workflow  
 - 🎨 **Modern UI/UX Enhancements** with GSAP + Framer Motion animations  
 - 🌗 **Dark/Light Mode Toggle** for a smooth coding experience  
+
+---
+
+## Live Demo
+
+🚀 You can try my hosted project here: [[CodeDoodle - Live Demo](https://code-doodle-editor.vercel.app/)](#)  
+
+---
+
+## Demo Images
+
+- Home Page
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767289833/xu4kmsvgwfnbahwqgpkw.png" alt="Industry-standar Directory structure" />
+
+- Real-time Code Editor Panel
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249979/ztn4jsxugf8bnphhmtzp.png" width="600" alt="Dark Theme Screenshot" />
+
+- Code Reviewer
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Home Page" />
+
+- Codedoodle ChatBot
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Home Page" />
+
+- Video Meeting using WebRTC
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Home Page" />
 
 ---
 
