@@ -15,6 +15,7 @@ const LeftPanel = ({ isLightMode, setisLightMode, feedback, setFeedback }) => {
   const textareaRef = useRef(null);
   const [Code, setCode] = useState("// Write your Code here");
   const [isLoading, setIsLoading] = useState(false);
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     if (textareaRef.current && !editorRef.current) {
@@ -49,7 +50,7 @@ const LeftPanel = ({ isLightMode, setisLightMode, feedback, setFeedback }) => {
     setIsLoading(true);
     const loadingToastId = toast.loading("Processing...");
     axios
-      .post(`https://code-doodle-editor-6.onrender.com/Code-reviewer/get-response`, { Code })
+      .post(`${BACKEND_URL}/Code-reviewer/get-response`, { Code })
       .then((res) => {
         setFeedback(res.data.msg);
         toast.dismiss(loadingToastId);
