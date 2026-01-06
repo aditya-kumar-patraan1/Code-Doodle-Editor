@@ -27,19 +27,22 @@ CodeDoodle integrates **real-time code sharing**, **AI-powered code reviews**, *
 ## Demo Images
 
 - Home Page
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767289833/xu4kmsvgwfnbahwqgpkw.png" alt="Industry-standar Directory structure" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767289833/xu4kmsvgwfnbahwqgpkw.png" alt="Codedoodle Home page" />
 
 - Real-time Code Editor Panel
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249979/ztn4jsxugf8bnphhmtzp.png" width="600" alt="Dark Theme Screenshot" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249979/ztn4jsxugf8bnphhmtzp.png" width="600" alt="Real time code editor panel" />
 
 - Code Reviewer
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Home Page" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Code reviewer" />
 
 - Codedoodle ChatBot
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Home Page" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Codedoodle Chatbot" />
 
 - Video Meeting using WebRTC
-<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Home Page" />
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767249938/cpnsl4jjdf9mtnaztasg.png" width="600" alt="Video Meeting using WebRTC" />
+
+- Workspace
+<img src="https://res.cloudinary.com/dlkuodrjm/image/upload/v1767686923/workspace_g526bc.png" width="600" alt="workspace" />
 
 ---
 
