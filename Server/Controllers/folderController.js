@@ -288,11 +288,67 @@ const deleteAllRecycleBinFile = async (req,res) => {
   }
 } 
 
+
+const deleteIndividualRecycleBinFile = async (req,res) => {
+   const userId = req.body.userId;
+
+   const {codeIndex} = req.params;
+
+  //  console.log(codeIndex);
+
+  
+  if(!userId){
+    return res.send({
+      status:0,
+      "message":"user id not accessed"
+    })
+  }
+
+  // console.log(userId);
+
+  try{
+    const user = await myModel.findById(userId);
+
+    if(!user){
+      return res.send({
+        status:0,
+        "message":"user not found"
+      })
+    }
+
+    const myIndex = user.recycleBin.findIndex((file)=>file._id.toString() == codeIndex);
+    
+    // console.log(myIndex);
+
+    if(myIndex!=-1){
+      user.recycleBin.splice(myIndex,1);
+    }
+
+    // console.log(user);
+
+    await user.save();
+
+    return res.send({
+      status:1,
+      "message":"all files deleted"
+    });
+    
+  }
+  catch(e){
+    return res.send({
+      status:0,
+      "message":e.message
+    })
+  }
+}
+
+
 module.exports = {
   addFile,
   deleteFile,
   deleteOneFile,
   addFileToRecycleBin,
   getRecycleBinFiles,
-  deleteAllRecycleBinFile
+  deleteAllRecycleBinFile,
+  deleteIndividualRecycleBinFile
 };
