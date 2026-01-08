@@ -19,13 +19,20 @@ function RecycleBinFolder() {
   const [isallDeleteOpen, setisallDeleteOpen] = useState(false);
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [confirm, setConfirm] = useState("");
+  const [individualFileText,setindividualFileText] = useState("");
+  const [OPP,setOPP] = useState(false);
 
   const handleOpenCode = (currIndex, itemFile) => {
     setisCodeOpen(true);
-    setCodeIndex(currIndex);
+    setCodeIndex(itemFile?._id);
+    // console.log(itemFile);
+    setOPP(true);
     setFile(itemFile?.fileName);
     setCode(itemFile?.fileContent);
   };
+
+  // console.log(file);
+  // console.log(codeIndex);
 
   const handleCopyCode = () => {
     toast.success("Code copied to clipboard");
@@ -37,11 +44,24 @@ function RecycleBinFolder() {
     setCodeIndex(null);
     setCode(null);
     setFile("");
+    setOPP(false);
   };
 
-  const handleDeleteVisibility = () => {
-    setisDeleteOpen((prev) => !prev);
+  const handleDeleteVisibility = (item) => {
+    setisDeleteOpen(true);
+    setindividualFileText("");
+    setFile(item?.fileName);
+    setCodeIndex(item?._id);
   };
+
+  const handleDeleteCloseVisibility = () => {
+    setisDeleteOpen(false);
+    setFile("");
+    setCodeIndex(null);
+    setindividualFileText("");
+  }
+
+  // console.log(OPP);
 
   const sendDeleteAllCallToMongo = async () => {
     const res = await axios.delete(
@@ -73,9 +93,39 @@ function RecycleBinFolder() {
 
   const closingAllFiles = () => {
     setisallDeleteOpen(false);
-    setConfirm("");
+    setindividualFileText("");
     setoptionVisibility(false);
   };
+
+  const sendingFileIndexToMongo = async () => {
+    // console.log(codeIndex);
+    const result = await axios.delete(`${BACKEND_URL}/api/file/deleteIndividualRecycleBinFile/${codeIndex}`,{
+      withCredentials : true
+    });
+    return result.data;
+  }
+
+  const handleDeletingIndividualFile = async () => {
+    
+    if(individualFileText.trim()=="" || individualFileText.trim().toLowerCase()!=`delete ${file.toLowerCase()}`){
+      toast.error(`Type '${file}'`)
+      return;
+    }
+    
+    try{
+      const res = await sendingFileIndexToMongo();
+      if(res.status === 1){
+        toast.success(`File deleted Successfully`);
+        getUserData();
+      }
+      else{
+        throw new Error();
+      }
+    }
+    catch(e){
+      toast.error(`File not deleted`);
+    }
+  }
 
   return (
     <>
@@ -83,7 +133,7 @@ function RecycleBinFolder() {
       <div className="bg-[#000000] relative w-full h-screen overflow-hidden flex flex-col">
         
         {/* Code Viewer Modal */}
-        {codeIndex != null && (
+        {OPP==true && (
           <div className="fixed inset-0 bg-white/30 backdrop-blur-md z-[60] flex justify-center items-center p-4">
             <div className="w-full sm:w-5/6 md:w-2/3 lg:w-1/2 h-5/6 bg-[#FFFFFF] p-4 sm:p-6 rounded-xl shadow-lg text-black border flex flex-col">
               <div className="flex justify-between items-start mb-4">
@@ -141,17 +191,19 @@ function RecycleBinFolder() {
           >
             <div className="bg-white border-2 border-gray-200 rounded-lg w-full max-w-[500px] p-6 shadow-xl text-center">
               <p className="text-sm sm:text-lg font-light mb-4 text-gray-800">
-                Are you sure you want to delete this file? Type{" "}
+                Are you sure you want to delete this file permanently? Type{" "}
                 <span className="font-bold text-pink-600">"Delete {file}"</span>
               </p>
               <input
                 type="text"
+                value={individualFileText}
+                onChange={(e)=>setindividualFileText(e.target.value)}
                 placeholder={`Enter Delete ${file}`}
                 className="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none text-black"
               />
               <div className="flex gap-3 mt-6">
-                <button onClick={handleDeleteVisibility} className="flex-1 bg-pink-500 py-2 text-white rounded-lg hover:bg-pink-600 active:scale-95">Close</button>
-                <button className="flex-1 bg-blue-500 py-2 text-white rounded-lg hover:bg-blue-600 active:scale-95">Confirm</button>
+                <button onClick={handleDeleteCloseVisibility} className="flex-1 bg-pink-500 py-2 text-white rounded-lg hover:bg-pink-600 active:scale-95">Close</button>
+                <button onClick={handleDeletingIndividualFile} className="flex-1 bg-blue-500 py-2 text-white rounded-lg hover:bg-blue-600 active:scale-95">Confirm</button>
               </div>
             </div>
           </motion.div>
@@ -198,7 +250,7 @@ function RecycleBinFolder() {
               userData.allRecycleBinFiles.map((item, index) => (
                 <div
                   key={index}
-                  className="group w-full p-4 flex justify-between items-center rounded-xl bg-gray-950 border border-gray-800 hover:border-green-400 hover:bg-gray-900 transition-all duration-300 shadow-lg"
+                  className="group w-full p-4 flex justify-between items-center rounded-xl bg-gray-950 border border-gray-800 hover:border-green-400 hover:bg-gray-900 transition-all duration-300 shadow-lg "
                 >
                   <div
                     onClick={() => handleOpenCode(index, item)}
@@ -216,7 +268,7 @@ function RecycleBinFolder() {
                   </div>
                   
                   <button
-                    onClick={(e) => { e.stopPropagation(); handleDeleteVisibility(); }}
+                    onClick={()=>handleDeleteVisibility(item)}
                     className="p-2 text-gray-500 hover:text-red-400 transition-colors shrink-0"
                   >
                     <MdDelete size={28} />
