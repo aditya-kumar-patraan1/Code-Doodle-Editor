@@ -95,6 +95,7 @@ const main = async (prompt) => {
   return text;
 };
 
+
 module.exports = {main};
 
 // for creating API key
